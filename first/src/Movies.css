@@ -1,0 +1,15 @@
+.movie
+{
+    list-style-type: none;
+}
+.movieDiv
+{
+    display: flex;
+    flex-wrap: nowrap;
+   gap:20px;
+}
+.movie img
+{
+    width:150px;
+    height: 100px;
+}

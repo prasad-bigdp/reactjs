@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ES6</title>
+</head>
+<body>
+    <div  class="data">
+          <button id="btn">click</button>
+    </div>
+    <script>
+        //scope
+        let a;//global
+        // function add(){
+        //     let b;//local- functional scope
+        //     if(x>10)
+        //     {
+        //         let k;//block scope
+                
+        //     }
+        // }
+      // class is a collection of object or a general body of data and methods
+      // object is an instance of class
+      //OOP
+ name="prasad"
+let obj={
+    name:"raj",
+    age:20,
+    
+}
+function display()
+{
+ console.log(`${this.name} and ${this.age}`)
+}
+const fun2=display.bind(obj)
+fun2()
+
+
+//this means current calling object
+//     const f = () =>
+//     {
+//         console.log(this)
+//     }
+// document.getElementById('btn').addEventListener('click',f)
+/* modify the values of this  call, apply, bind */
+    
+  //OOPs
+  //objects-->data(key:value) and methods
+  
+  
+
+
+    </script>
+    <script   src="./index.js"></script>
+</body>
+</html>

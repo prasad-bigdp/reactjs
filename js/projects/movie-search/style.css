@@ -1,0 +1,16 @@
+.image
+{
+    height: 100px;
+    width: 100px;
+}
+#search
+{
+ width: 100vw;
+ display: flex;
+ justify-content: center;
+}
+#movieData{
+    display: grid;
+    grid-template-columns: repeat(3,auto);
+    gap: 10px;
+}
