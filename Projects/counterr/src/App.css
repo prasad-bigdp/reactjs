@@ -1,0 +1,43 @@
+.App
+{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+}
+.counter{
+  box-shadow: 5px 5px 5px black;
+  border-radius: 10px ;
+  margin: 20px;
+  padding: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.counter p{
+  font-size: 30px;
+}
+.buttons
+{
+  display: flex;
+  gap:20px;
+}
+button
+{
+  border-radius:5px;
+  background-color: black;
+  color: white;
+  transition: all 2s ease;
+  padding: 10px;
+}
+button:hover,button:focus{
+  background-color: #c89c50;
+  color: white;
+}
+.error
+{
+  color: red;
+}
