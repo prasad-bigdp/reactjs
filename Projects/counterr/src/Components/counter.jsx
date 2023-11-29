@@ -10,6 +10,7 @@ const Counter = () =>
     {
        setCount(count + 1)
     }
+    
     const decr = () =>
     {
         if (count <= 0)
@@ -25,7 +26,9 @@ const Counter = () =>
     const reset = () =>
     {
         setCount(0)
+        
     }
+    
   return (
       <div className='counter'>
           <p>Functional</p>
