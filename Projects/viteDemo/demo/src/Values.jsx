@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 
 function Values (prop)
 {
+    console.log(prop)
     const [inpVal,setInpVal] = useState('')
     const d = "prasad"
     const parentValue = () =>
