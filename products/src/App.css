@@ -1,0 +1,43 @@
+/*cards css*/
+li
+{
+  list-style-type: none;
+}
+.card
+{
+  height: 400px;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+   box-shadow: 5px 5px black;
+   transition: all 2s ease;
+}
+.card img
+{
+  height: 100px;
+  width: 100px;
+}
+.card:hover{
+  transform: scale(1.05);
+}
+.cardContainer
+{
+  display: grid;
+  grid-template-columns: repeat(3,auto);
+  gap: 20px;
+}
+
+/* header */
+.header
+{
+  display: flex;
+  justify-content: space-between;
+}
+.header img
+{
+  width: 200px;
+  height: 80px;
+}
