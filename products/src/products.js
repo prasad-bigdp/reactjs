@@ -5,13 +5,24 @@ const Products = () =>
     const [products, setProducts] = useState([])
     const [count, setCount] = useState(0)
     const [cartItems, setCartItems] = useState([])
-    const [cartValue,setCartValue]=useState(0)
+    const [cartValue, setCartValue] = useState(0)
+    const [loading,setloading]=useState(true)
     
     useEffect(() =>
     {
-        fetch("https://fakestoreapi.com/products")
+        try
+        {
+                fetch("https://fakestoreapi.com/products")
             .then((response) => response.json())
-            .then((data) => setProducts(data))
+                .then((data) => setProducts(data))
+            setloading(false)
+        }
+        catch (err)
+        {
+            setloading(true);
+            console.log(err)
+        }
+    
         console.log("use effect")
 
     }, [])
@@ -26,39 +37,43 @@ const Products = () =>
         setCount(count + 1)
     }
 
-  return (
-		<div>
-			<header className='header'>
-				<img
-					src='https://st2.depositphotos.com/4035913/6124/i/450/depositphotos_61243733-stock-illustration-business-company-logo.jpg'
-					alt='logo'
-              />
-              <p>Cart:{count}</p>
-              <p>cartItems:{
-                  cartItems.map((prod) => (
-                      <li key={prod.id}>{prod.title}</li>
-                  ))
-              }</p>
-              <p>cartValue:{cartValue}</p>
-			</header>
-			<ul className='cardContainer'>
-				{products.map((prod, index) => (
-					<li key={index}>
-						<div className='card'>
-							<img
-								src={prod.image}
-								alt={prod.title}
-							/>
-							<h2> {prod.title}</h2>
-							<p>Price:{prod.price}</p>
-							<p>Rating:{prod.rating.rate}/5.0</p>
-							<button onClick={()=>addCart(prod)}>Buy</button>
-						</div>
-					</li>
-				))}
-			</ul>
-		</div>
-	)
+    return (
+			<div>
+				{loading && <p>Loadin.............</p>}
+				<div>
+					<header className='header'>
+						<img
+							src='https://st2.depositphotos.com/4035913/6124/i/450/depositphotos_61243733-stock-illustration-business-company-logo.jpg'
+							alt='logo'
+						/>
+						<p>Cart:{count}</p>
+						<p>
+							cartItems:
+							{cartItems.map((prod) => (
+								<li key={prod.id}>{prod.title}</li>
+							))}
+						</p>
+						<p>cartValue:{cartValue}</p>
+					</header>
+					<ul className='cardContainer'>
+						{products.map((prod, index) => (
+							<li key={index}>
+								<div className='card'>
+									<img
+										src={prod.image}
+										alt={prod.title}
+									/>
+									<h2> {prod.title}</h2>
+									<p>Price:{prod.price}</p>
+									<p>Rating:{prod.rating.rate}/5.0</p>
+									<button onClick={() => addCart(prod)}>Buy</button>
+								</div>
+							</li>
+						))}
+					</ul>
+				</div>
+			</div>
+		)
 }
 
 export default Products
