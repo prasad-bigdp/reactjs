@@ -39,7 +39,7 @@ const Products = () =>
 
     return (
 			<div>
-				{loading && <p>Loadin.............</p>}
+				{loading && <p>Loading.............</p>}
 				<div>
 					<header className='header'>
 						<img
