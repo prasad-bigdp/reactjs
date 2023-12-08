@@ -1,5 +1,5 @@
-/*cards css*/
-li
+/* cards css*/
+/*li
 {
   list-style-type: none;
 }
@@ -30,7 +30,7 @@ li
   gap: 20px;
 }
 
-/* header */
+/* header 
 .header
 {
   display: flex;
@@ -40,4 +40,7 @@ li
 {
   width: 200px;
   height: 80px;
-}
+} */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
