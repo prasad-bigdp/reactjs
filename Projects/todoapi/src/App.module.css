@@ -1,0 +1,15 @@
+.completed
+{
+    color:green;
+}
+.notcompleted
+{
+    color:red;
+}
+.div
+{
+   width: 300px;
+   height: 100px;
+   overflow: hidden;
+   border: 1px solid black;
+}
