@@ -38,7 +38,7 @@ const REgForm = () =>
 
   return (
 		<div>
-			<form onSubmit={handleSubmit}>
+			<form onSubmit={(e)=>handleSubmit(e)}>
 				<label htmlFor='na'>Name:</label>
 				<input
                   type='text'
