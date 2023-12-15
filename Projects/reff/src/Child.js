@@ -17,7 +17,7 @@ const Child = React.forwardRef(function MyComponent (props, ref)
 			[value],
 		)
   return (
-    <div>
+	  <div>
       <input type="text" ref={ref} onChange={()=>setValue(value+1)}/>
     </div>
   )
