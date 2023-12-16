@@ -1,19 +1,20 @@
-import React, { Component } from "react";
-import styled from "styled-components";
+import React from "react";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
-export default class NavBar extends Component {
-  render() {
+const NavBar= () =>{
+
     return (
       <div>
         <nav className="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-          <a
-            href=""
+          <Link
+            to="/"
             className="navbar-brand col-sm-3 col-md-2 mr-0 align-items-center"
           >
             Pokedex
-          </a>
+          </Link>
         </nav>
       </div>
     );
-  }
+  
 }
+export default NavBar

@@ -17,6 +17,7 @@ function App ()
   },
   [n1,n2] 
   )
+ 
   const result2 = useCallback(() =>
   {
     console.log("use Callback called")
@@ -38,5 +39,16 @@ function App ()
 		</div>
 	)
 }
-
+export function useIncr (url)
+{
+   const [inc,setInc]=useState([])
+  useEffect(() =>
+  {
+       fetch(url).then((res)=>res.json()).then((data)=>setInc(data))
+     })
+  
+  
+  
+   return inc;
+ }
 export default App;
