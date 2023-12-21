@@ -1,74 +1,82 @@
-import React, { useEffect } from "react"
-import axios from "axios"
-import { useState } from "react"
-import { useParams } from "react-router-dom"
-
-const Update = () => {
-	const [formDetails, setFormDetails] = useState({
+import React, { useEffect,useState } from 'react'
+import { useLocation, useNavigate, useParams } from 'react-router-dom'
+import axios from 'axios';
+const Update = () =>
+{
+	const [formData, setFormData] = useState({
 		id: 0,
-		name: "",
-		marks: 0,
-    })
+		name: '',
+		marks:0
+	})
+	let navigate = useNavigate();
+	let location = useLocation();
+	console.log(location)
+	let params = new URLSearchParams(location.search)
+	let id = params.get('Id')
+	console.log(id)
+	useEffect(() =>
+	{
+		axios
+			.get(`http://localhost:3000/students/${id}`)
+			.then((res) =>
+			{
+				console.log(res.data)
+				setFormData(res.data);
 
-    useEffect(() =>
-    {
-        let params = useParams()
-        console.log(params.search)
-        
-    },[])
-	// const handleSubmit = (e) => {
-	// 	e.preventDefault()
-	// 	axios
-	// 		.post("http://localhost:3000/students", formDetails)
-	// 		.then((res) => alert("successfully added"))
-	// 		.catch((err) => console.log(err))
-	// }
-	return (
+			})
+			.catch((err) =>
+			{
+				console.log(err)
+			})
+	}, []);
+	const handleSubmit = (e) =>
+	{
+		e.preventDefault();
+		axios.put(`http://localhost:3000/students/${id}`, formData)
+			.then((res) =>
+			{
+				alert("successfully Updated");
+				navigate('/')
+			})
+			.catch((err) => console.log(err));
+	}
+  return (
 		<div>
-			{/* <h1>Create Student Details</h1>
-			<form onSubmit={(e) => handleSubmit(e)}>
-				<div className='mb-2'>
-					<label htmlFor='id'>Enter the Id</label>
-					<br />
-					<input
-						type='text'
-						id='id'
-						value={formDetails.id}
-						onChange={(e) =>
-							setFormDetails({ ...formDetails, id: e.target.value })
-						}
-					/>
-				</div>
-				<div className='mb-2'>
-					<label htmlFor='Name'>Enter the Name</label>
-					<br />
-					<input
-						type='text'
-						id='name'
-						value={formDetails.name}
-						onChange={(e) =>
-							setFormDetails({ ...formDetails, name: e.target.value })
-						}
-					/>
-				</div>
-				<div>
-					<label htmlFor='marks'>Enter the marks</label>
-					<br />
-					<input
-						type='text'
-						id='marks'
-						value={formDetails.marks}
-						onChange={(e) =>
-							setFormDetails({ ...formDetails, marks: e.target.value })
-						}
-					/>
-				</div>
+			<h1>Update the values</h1>
+			<form
+				className='form border border-black m-2 p-5'
+				onSubmit={(e) => handleSubmit(e)}>
+				<label htmlFor=''>Id</label>
+				<input
+					type='text'
+					value={formData.id}
+					className='form-control'
+					onChange={(e) => setFormData({ ...formData, id: e.target.value })}
+				/>
+				<br />
+				<label htmlFor=''>Name</label>
+				<input
+					type='text'
+					value={formData.name}
+					className=' form-control'
+					onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+				/>
+				<br />
+				<label htmlFor=''>Marks</label>
+				<input
+					type='text'
+					value={formData.marks}
+					className=' form-control'
+					onChange={(e) => setFormData({ ...formData, marks: e.target.value })}
+				/>
+				<br />
 				<button
 					type='submit'
-					className='btn btn-success'>
-					Submit
+					className='btn btn-primary'>
+					{" "}
+					Update{" "}
 				</button>
-			</form> */}
+			</form>
 		</div>
 	)
 }
