@@ -1,13 +1,13 @@
 import React, { useEffect,useState } from 'react'
 import axios from 'axios'
-import { useLocation, useNavigate,Link } from 'react-router-dom'
+import {Link } from 'react-router-dom'
 const Home = () =>
 {
   const [sdata, setSdata] = useState([])
 
     useEffect(() =>
     {
-        axios.get('http://localhost:3000/students')
+		axios.get('http://localhost:3000/students')
             .then((res) => setSdata(res.data))
         .catch((err)=>console.log(err))
     }, [])

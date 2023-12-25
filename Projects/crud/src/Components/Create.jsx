@@ -13,13 +13,21 @@ const Create = () =>
     const handleSubmit = (e) =>
     {
         e.preventDefault();
-        axios.post("http://localhost:3000/students", formDetails)
-			.then((res) =>
-			{
-				alert("successfully added");
-               navigate('/')
-			})
-        .catch((err)=>console.log(err))
+        axios
+					.post(
+						"http://localhost:3000/students",
+						{
+							headers: {
+								"Access-Control-Allow-Origin": true,
+							},
+						},
+						formDetails,
+					)
+					.then((res) => {
+						alert("successfully added")
+						navigate("/")
+					})
+					.catch((err) => console.log(err))
     }
   return (
 		<div>

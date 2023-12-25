@@ -4,19 +4,15 @@ const productSchema = mongoose.Schema(
     {
         name: {
             type: String,
-            required: [true, "Please enter a product name"]
+            required: [false, "Please enter a product name"]
         },
-        quantity: {
+        id: {
             type: Number,
-            required: true,
+            required: false,
             default: 0
         },
-        price: {
+        marks: {
             type: Number,
-            required: true,
-        },
-        image: {
-            type: String,
             required: false,
         }
     },
