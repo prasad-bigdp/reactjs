@@ -9,7 +9,7 @@ function counterReducer (state=0,action)
     {
         case "INCR":
             return state + 1 ;
-        case "Decr":
+        case "DECR":
             return state- 1
         
         default: return state;
