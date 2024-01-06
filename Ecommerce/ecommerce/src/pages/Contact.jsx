@@ -1,12 +1,12 @@
 import React from 'react'
 import Layout from "../components/Layout"
 
-const Order = () => {
+const Contact = () => {
   return (
     <Layout>
-      <p>Order</p>
+      <p>Contact</p>
     </Layout>
   )
 }
 
-export default Order
+export default Contact

@@ -6,6 +6,8 @@ import NoPage from './pages/NoPage'
 import Cart from './pages/Cart'
 import Dashboard from './pages/Admin/dashboard'
 import myContext from './context/myContext'
+import Contact from './pages/Contact'
+import Allproducts from './pages/Allproducts'
 const App = () =>
 {
 	 const details = {
@@ -26,6 +28,10 @@ const App = () =>
 						element={<Order />}
 					/>
 					<Route
+						path='/products'
+						element={<Allproducts />}
+					/>
+					<Route
 						path='/cart'
 						element={<Cart />}
 					/>
@@ -33,6 +39,11 @@ const App = () =>
 						path='/dashboard'
 						element={<Dashboard />}
 					/>
+					<Route
+						path='/contact'
+						element={<Contact />}
+					/>
+
 					<Route
 						path='/*'
 						element={<NoPage />}
